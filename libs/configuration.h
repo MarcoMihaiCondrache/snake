@@ -22,10 +22,9 @@
  * @details This macro determinate if ANSI colors codes
  * should be used when printing to stdout.
  *
- * Set to true by default. Set it to false if
- * you are seeing strange codes on the terminal.
+ * Set to false by default.
  */
-#define PROGRAM_OUTPUT_COLORS true
+#define PROGRAM_OUTPUT_COLORS false
 
 /**
  *
