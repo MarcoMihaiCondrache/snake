@@ -27,14 +27,6 @@
  */
 #define PROGRAM_OUTPUT_COLORS true
 
-#if defined(__unix__)
-#define PROGRAM_USE_THREADS true
-#else
-#define PROGRAM_USE_THREADS false
-#endif
-
-#define PROGRAM_THREADS_LIMIT 8
-
 /**
  *
  */

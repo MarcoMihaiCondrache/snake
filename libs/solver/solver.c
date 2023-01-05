@@ -110,55 +110,6 @@ static bool solver_execute_dfs(maze_t maze, location_t start, location_t end) {
     return false;
 }
 
-static void *run_estimate_coin_thread(void *input) {
-#if defined(PROGRAM_RP_ALLOCATOR) && PROGRAM_RP_ALLOCATOR == true
-    rpmalloc_thread_initialize();
-#endif
-    thread_data_t *data_p = ((thread_data_t *) input);
-    thread_data_t data = *data_p;
-
-    maze_t maze = data.maze;
-    bool can_be_reach = false;
-
-    if (solver_execute_dfs(maze, data.maze.end, data.current)) {
-        can_be_reach = true;
-    } else {
-        path_t p = solver_execute_astar(maze, data.maze.start, data.current, NULL, true);
-
-        if (cvector_size(p) > 0)
-            can_be_reach = true;
-
-        cvector_free(p);
-    }
-
-    if (can_be_reach) {
-        path_t end_to_point = solver_execute_astar(maze, data.maze.end, data.current, NULL, true);
-        path_t start_to_point = solver_execute_astar(maze, data.maze.start, data.current, end_to_point, true);
-        bool needs_verify = test_coin_estimation(start_to_point, end_to_point, data.current);
-
-        cvector_free(start_to_point);
-        cvector_free(end_to_point);
-
-        if (needs_verify) {
-            start_to_point = solver_execute_astar(maze, data.maze.start, data.current, NULL, true);
-            end_to_point = solver_execute_astar(maze, data.maze.end, data.current, start_to_point, true);
-            needs_verify = test_coin_estimation(start_to_point, end_to_point, data.current);
-
-            cvector_free(start_to_point);
-            cvector_free(end_to_point);
-        }
-
-        can_be_reach = !needs_verify;
-    }
-
-    data_p->result = can_be_reach;
-#if defined(PROGRAM_RP_ALLOCATOR) && PROGRAM_RP_ALLOCATOR == true
-    rpmalloc_thread_finalize(true);
-#endif
-
-    pthread_exit(NULL);
-}
-
 int estimate_coins(maze_t maze) {
     // Trying to estimate the points
     // that could be reached without affecting
@@ -166,50 +117,6 @@ int estimate_coins(maze_t maze) {
 
     path_t points = NULL;
 
-#if defined(PROGRAM_USE_THREADS) && PROGRAM_USE_THREADS == true
-    int last_thread = 0;
-    pthread_t threads[PROGRAM_THREADS_LIMIT];
-    thread_data_t threads_data[PROGRAM_THREADS_LIMIT];
-
-    for (int i = 0; i < maze.width * maze.height; ++i) {
-        if (*core_get_block(maze, i % maze.width, i / maze.width) != SNAKE_COIN_CHAR)
-            continue;
-
-        location_t current = {i % maze.width, i / maze.width};
-
-        if (last_thread >= PROGRAM_THREADS_LIMIT) {
-            for (int j = 0; j < PROGRAM_THREADS_LIMIT; ++j) {
-                if (pthread_join(threads[j], NULL) != 0)
-                    exit(0);
-
-                if (threads_data[j].result) {
-                    cvector_push_back(points, threads_data[j].current);
-                }
-
-                if (j == PROGRAM_THREADS_LIMIT - 1) {
-                    last_thread = 0;
-                }
-            }
-        }
-
-        threads_data[last_thread].maze = maze;
-        threads_data[last_thread].current = current;
-
-        pthread_create(&threads[last_thread], NULL, run_estimate_coin_thread, &threads_data[last_thread]);
-        last_thread++;
-    }
-
-    for (int i = 0; i < last_thread; ++i) {
-        if (pthread_join(threads[i], NULL) != 0)
-            continue;
-
-        if (threads_data[i].result) {
-            cvector_push_back(points, threads_data[i].current);
-        }
-    }
-#endif
-
-#if !defined(PROGRAM_USE_THREADS) || PROGRAM_USE_THREADS != true
     for (int i = 0; i < maze.width * maze.height; ++i) {
         if (*core_get_block(maze, i % maze.width, i / maze.width) == SNAKE_COIN_CHAR) {
             location_t current = {i % maze.width, i / maze.width};
@@ -261,8 +168,6 @@ int estimate_coins(maze_t maze) {
 
     cvector_free(points);
     return size;
-#endif
-    return cvector_size(points);
 }
 
 path_t solver_execute_full(maze_t maze) {

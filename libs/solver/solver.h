@@ -13,12 +13,16 @@
 #ifndef SNAKE_SOLVER_H
 #define SNAKE_SOLVER_H
 
-#include <math.h>
-#include <time.h>
-#include <pthread.h>
 #include "../core/core.h"
 #include "../configuration.h"
 #include "../vector/cvector.h"
+
+#include <math.h>
+#include <time.h>
+
+#if defined(PROGRAM_USE_THREADS) && PROGRAM_USE_THREADS == true
+#include <pthread.h>
+#endif
 
 #ifndef PROGRAM_SOLVER_FULL_PRECISION
 /**
@@ -55,14 +59,6 @@ typedef cvector_vector_type(location_t) path_t;
  * @see path_t
  */
 typedef cvector_vector_type(path_t) paths_t;
-
-typedef cvector_vector_type(pthread_t) threads_t;
-
-typedef struct thread_data {
-    maze_t maze;
-    location_t current;
-    bool result;
-} thread_data_t;
 
 /**
  * @brief Function that runs the full algorithm
