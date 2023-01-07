@@ -20,10 +20,6 @@
 #include <math.h>
 #include <time.h>
 
-#if defined(PROGRAM_USE_THREADS) && PROGRAM_USE_THREADS == true
-#include <pthread.h>
-#endif
-
 #ifndef PROGRAM_SOLVER_FULL_PRECISION
 /**
  * @details Macro used to run the algorithm to its
@@ -73,6 +69,18 @@ typedef cvector_vector_type(path_t) paths_t;
  */
 path_t solver_execute_full(maze_t maze);
 
+/**
+ * @brief Runs the base a* algorithm
+ *
+ * Simple and fast implementation of the a* algorithm.
+ *
+ * @param maze Maze where to execute a*
+ * @param start Starting point
+ * @param end Ending point
+ * @param overlay Which points to evict
+ * @param go_back Search a straight-only path
+ * @return
+ */
 path_t solver_execute_astar(maze_t maze, location_t start, location_t end, path_t overlay, bool go_back);
 
 #endif //SNAKE_SOLVER_H
