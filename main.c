@@ -58,7 +58,7 @@
  *
  *  These are the arguments:
  *      - <tt>--file <path></tt> Parses a maze from the specified file.
- *      - <tt>--generate</tt> Generates a maze and uses it in the game.
+ *      - <tt>--generate <width> <height></tt> Generates a maze and uses it in the game.
  *      - <tt>--challenge</tt> Runs the challenge mode, @see game_mode
  *
  *  @section troubleshooting Troubleshooting
