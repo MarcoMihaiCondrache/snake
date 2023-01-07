@@ -99,7 +99,8 @@ $(document).ready(function(){initNavTree('cvector_8h.html',''); initResizable();
 
 <p>Header that contains macros to run a dynamic vector.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &lt;assert.h&gt;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="configuration_8h_source.html">../configuration.h</a>&quot;</code><br />
+<code>#include &lt;assert.h&gt;</code><br />
 <code>#include &lt;stdlib.h&gt;</code><br />
 <code>#include &lt;string.h&gt;</code><br />
 </div>
@@ -159,8 +160,8 @@ Macros</h2></td></tr>
 <tr class="memitem:a2cee6ffc6a6c3972cef27c0244308dd5"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cvector_8h.html#a2cee6ffc6a6c3972cef27c0244308dd5">cvector_last</a>(vec)&#160;&#160;&#160;    ((vec) ? (vec) + (<a class="el" href="cvector_8h.html#a0e1016ecc53bdd49b5f31266778ba813">cvector_size</a>(vec) - 1) : NULL)</td></tr>
 <tr class="memdesc:a2cee6ffc6a6c3972cef27c0244308dd5"><td class="mdescLeft">&#160;</td><td class="mdescRight">cvector_end - returns an iterator to the last element of the vector  <a href="cvector_8h.html#a2cee6ffc6a6c3972cef27c0244308dd5">More...</a><br /></td></tr>
 <tr class="separator:a2cee6ffc6a6c3972cef27c0244308dd5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7a7cb921c2efe5ab4ed56bf3c814b711"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cvector_8h.html#a7a7cb921c2efe5ab4ed56bf3c814b711">cvector_compute_next_grow</a>(size)&#160;&#160;&#160;    ((size) + 1)</td></tr>
-<tr class="memdesc:a7a7cb921c2efe5ab4ed56bf3c814b711"><td class="mdescLeft">&#160;</td><td class="mdescRight">cvector_compute_next_grow - returns an the computed size in next vector grow size is increased by 1  <a href="cvector_8h.html#a7a7cb921c2efe5ab4ed56bf3c814b711">More...</a><br /></td></tr>
+<tr class="memitem:a7a7cb921c2efe5ab4ed56bf3c814b711"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cvector_8h.html#a7a7cb921c2efe5ab4ed56bf3c814b711">cvector_compute_next_grow</a>(size)&#160;&#160;&#160;    ((size) ? ((size) &lt;&lt; 1) : 1)</td></tr>
+<tr class="memdesc:a7a7cb921c2efe5ab4ed56bf3c814b711"><td class="mdescLeft">&#160;</td><td class="mdescRight">cvector_compute_next_grow - returns an the computed size in next vector grow size is increased by multiplication of 2  <a href="cvector_8h.html#a7a7cb921c2efe5ab4ed56bf3c814b711">More...</a><br /></td></tr>
 <tr class="separator:a7a7cb921c2efe5ab4ed56bf3c814b711"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1ef12b137ccdc8de1f51fae4f74f9850"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cvector_8h.html#a1ef12b137ccdc8de1f51fae4f74f9850">cvector_push_back</a>(vec,  value)</td></tr>
 <tr class="memdesc:a1ef12b137ccdc8de1f51fae4f74f9850"><td class="mdescLeft">&#160;</td><td class="mdescRight">cvector_push_back - adds an element to the end of the vector  <a href="cvector_8h.html#a1ef12b137ccdc8de1f51fae4f74f9850">More...</a><br /></td></tr>
@@ -288,12 +289,12 @@ typedef void(*&#160;</td><td class="memItemRight" valign="bottom"><b>cvector_ele
           <td>(</td>
           <td class="paramtype">&#160;</td>
           <td class="paramname">size</td><td>)</td>
-          <td>&#160;&#160;&#160;    ((size) + 1)</td>
+          <td>&#160;&#160;&#160;    ((size) ? ((size) &lt;&lt; 1) : 1)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>cvector_compute_next_grow - returns an the computed size in next vector grow size is increased by 1 </p>
+<p>cvector_compute_next_grow - returns an the computed size in next vector grow size is increased by multiplication of 2 </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">size</td><td>- current size </td></tr>
@@ -336,7 +337,7 @@ typedef void(*&#160;</td><td class="memItemRight" valign="bottom"><b>cvector_ele
 <div class="line">            memmove((to), (from), <a class="code hl_define" href="cvector_8h.html#a0e1016ecc53bdd49b5f31266778ba813">cvector_size</a>(from) * <span class="keyword">sizeof</span>(*(from))); \</div>
 <div class="line">        }                                                               \</div>
 <div class="line">    } <span class="keywordflow">while</span> (0)</div>
-<div class="ttc" id="acvector_8h_html_a0e1016ecc53bdd49b5f31266778ba813"><div class="ttname"><a href="cvector_8h.html#a0e1016ecc53bdd49b5f31266778ba813">cvector_size</a></div><div class="ttdeci">#define cvector_size(vec)</div><div class="ttdoc">cvector_size - gets the current size of the vector</div><div class="ttdef"><b>Definition:</b> cvector.h:70</div></div>
+<div class="ttc" id="acvector_8h_html_a0e1016ecc53bdd49b5f31266778ba813"><div class="ttname"><a href="cvector_8h.html#a0e1016ecc53bdd49b5f31266778ba813">cvector_size</a></div><div class="ttdeci">#define cvector_size(vec)</div><div class="ttdoc">cvector_size - gets the current size of the vector</div><div class="ttdef"><b>Definition:</b> cvector.h:71</div></div>
 </div><!-- fragment -->
 <p>cvector_copy - copy a vector </p>
 <dl class="params"><dt>Parameters</dt><dd>
@@ -645,7 +646,7 @@ typedef void(*&#160;</td><td class="memItemRight" valign="bottom"><b>cvector_ele
 <div class="line">            cvector_clib_free(p1__);                                                                                                \</div>
 <div class="line">        }                                                                                                                           \</div>
 <div class="line">    } <span class="keywordflow">while</span> (0)</div>
-<div class="ttc" id="acvector_8h_html_ad35611fe80b5dd19c233c0e74e6373cb"><div class="ttname"><a href="cvector_8h.html#ad35611fe80b5dd19c233c0e74e6373cb">cvector_elem_destructor</a></div><div class="ttdeci">#define cvector_elem_destructor(vec)</div><div class="ttdoc">cvector_elem_destructor - get the element destructor function used to clean up elements</div><div class="ttdef"><b>Definition:</b> cvector.h:94</div></div>
+<div class="ttc" id="acvector_8h_html_ad35611fe80b5dd19c233c0e74e6373cb"><div class="ttname"><a href="cvector_8h.html#ad35611fe80b5dd19c233c0e74e6373cb">cvector_elem_destructor</a></div><div class="ttdeci">#define cvector_elem_destructor(vec)</div><div class="ttdoc">cvector_elem_destructor - get the element destructor function used to clean up elements</div><div class="ttdef"><b>Definition:</b> cvector.h:95</div></div>
 </div><!-- fragment -->
 <p>cvector_free - frees all memory associated with the vector </p>
 <dl class="params"><dt>Parameters</dt><dd>
@@ -795,8 +796,8 @@ typedef void(*&#160;</td><td class="memItemRight" valign="bottom"><b>cvector_ele
 <div class="line">        (vec)[(pos)] = (val);                                                                              \</div>
 <div class="line">        cvector_set_size((vec), <a class="code hl_define" href="cvector_8h.html#a0e1016ecc53bdd49b5f31266778ba813">cvector_size</a>(vec) + 1);                                                    \</div>
 <div class="line">    } <span class="keywordflow">while</span> (0)</div>
-<div class="ttc" id="acvector_8h_html_a37ab2921b0dab37bd7c2d8a06d1a49d0"><div class="ttname"><a href="cvector_8h.html#a37ab2921b0dab37bd7c2d8a06d1a49d0">cvector_capacity</a></div><div class="ttdeci">#define cvector_capacity(vec)</div><div class="ttdoc">cvector_capacity - gets the current capacity of the vector</div><div class="ttdef"><b>Definition:</b> cvector.h:62</div></div>
-<div class="ttc" id="acvector_8h_html_a7a7cb921c2efe5ab4ed56bf3c814b711"><div class="ttname"><a href="cvector_8h.html#a7a7cb921c2efe5ab4ed56bf3c814b711">cvector_compute_next_grow</a></div><div class="ttdeci">#define cvector_compute_next_grow(size)</div><div class="ttdoc">cvector_compute_next_grow - returns an the computed size in next vector grow size is increased by 1</div><div class="ttdef"><b>Definition:</b> cvector.h:215</div></div>
+<div class="ttc" id="acvector_8h_html_a37ab2921b0dab37bd7c2d8a06d1a49d0"><div class="ttname"><a href="cvector_8h.html#a37ab2921b0dab37bd7c2d8a06d1a49d0">cvector_capacity</a></div><div class="ttdeci">#define cvector_capacity(vec)</div><div class="ttdoc">cvector_capacity - gets the current capacity of the vector</div><div class="ttdef"><b>Definition:</b> cvector.h:63</div></div>
+<div class="ttc" id="acvector_8h_html_a7a7cb921c2efe5ab4ed56bf3c814b711"><div class="ttname"><a href="cvector_8h.html#a7a7cb921c2efe5ab4ed56bf3c814b711">cvector_compute_next_grow</a></div><div class="ttdeci">#define cvector_compute_next_grow(size)</div><div class="ttdoc">cvector_compute_next_grow - returns an the computed size in next vector grow size is increased by mul...</div><div class="ttdef"><b>Definition:</b> cvector.h:205</div></div>
 </div><!-- fragment -->
 <p>cvector_insert - insert element at position pos to the vector </p>
 <dl class="params"><dt>Parameters</dt><dd>
@@ -979,7 +980,7 @@ typedef void(*&#160;</td><td class="memItemRight" valign="bottom"><b>cvector_ele
 <div class="line">            cvector_set_size((vec), <a class="code hl_define" href="cvector_8h.html#a0e1016ecc53bdd49b5f31266778ba813">cvector_size</a>((from)) + <a class="code hl_define" href="cvector_8h.html#a0e1016ecc53bdd49b5f31266778ba813">cvector_size</a>((vec)));\</div>
 <div class="line">        }                                                               \</div>
 <div class="line">    } <span class="keywordflow">while</span> (0)</div>
-<div class="ttc" id="acvector_8h_html_af0c4654a78847e695ccff00a6a5a1e5d"><div class="ttname"><a href="cvector_8h.html#af0c4654a78847e695ccff00a6a5a1e5d">cvector_end</a></div><div class="ttdeci">#define cvector_end(vec)</div><div class="ttdoc">cvector_end - returns an iterator to one past the last element of the vector</div><div class="ttdef"><b>Definition:</b> cvector.h:185</div></div>
+<div class="ttc" id="acvector_8h_html_af0c4654a78847e695ccff00a6a5a1e5d"><div class="ttname"><a href="cvector_8h.html#af0c4654a78847e695ccff00a6a5a1e5d">cvector_end</a></div><div class="ttdeci">#define cvector_end(vec)</div><div class="ttdoc">cvector_end - returns an iterator to one past the last element of the vector</div><div class="ttdef"><b>Definition:</b> cvector.h:186</div></div>
 </div><!-- fragment -->
 <p>cvector_push_vector - pushes a vector from another </p>
 <dl class="params"><dt>Parameters</dt><dd>
@@ -1103,7 +1104,7 @@ typedef void(*&#160;</td><td class="memItemRight" valign="bottom"><b>cvector_ele
 </div><div class="memdoc">
 <b>Value:</b><div class="fragment"><div class="line">    <span class="keywordflow">if</span>((vec))                                         \</div>
 <div class="line">        for ((it) = <a class="code hl_define" href="cvector_8h.html#af0c4654a78847e695ccff00a6a5a1e5d">cvector_end</a>(vec) - 1; (it) &gt;= <a class="code hl_define" href="cvector_8h.html#a30eec18d65f78194b3c72217b83f4334">cvector_begin</a>(vec); (it)--)</div>
-<div class="ttc" id="acvector_8h_html_a30eec18d65f78194b3c72217b83f4334"><div class="ttname"><a href="cvector_8h.html#a30eec18d65f78194b3c72217b83f4334">cvector_begin</a></div><div class="ttdeci">#define cvector_begin(vec)</div><div class="ttdoc">cvector_begin - returns an iterator to first element of the vector</div><div class="ttdef"><b>Definition:</b> cvector.h:177</div></div>
+<div class="ttc" id="acvector_8h_html_a30eec18d65f78194b3c72217b83f4334"><div class="ttname"><a href="cvector_8h.html#a30eec18d65f78194b3c72217b83f4334">cvector_begin</a></div><div class="ttdeci">#define cvector_begin(vec)</div><div class="ttdoc">cvector_begin - returns an iterator to first element of the vector</div><div class="ttdef"><b>Definition:</b> cvector.h:178</div></div>
 </div><!-- fragment -->
 <p>cvector_reverse_for_each_in - for header to iterate backwards over vector each element's address </p>
 <dl class="params"><dt>Parameters</dt><dd>

@@ -98,10 +98,11 @@ $(document).ready(function(){initNavTree('solver_8h.html',''); initResizable(); 
 
 <p>Header that contains the solver functions.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &lt;math.h&gt;</code><br />
-<code>#include &lt;time.h&gt;</code><br />
-<code>#include &quot;<a class="el" href="core_8h_source.html">../core/core.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="core_8h_source.html">../core/core.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="configuration_8h_source.html">../configuration.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="cvector_8h_source.html">../vector/cvector.h</a>&quot;</code><br />
+<code>#include &lt;math.h&gt;</code><br />
+<code>#include &lt;time.h&gt;</code><br />
 </div>
 <p><a href="solver_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -116,8 +117,8 @@ Functions</h2></td></tr>
 <tr class="memitem:ae5800d231c2efca9d2978819e7815357"><td class="memItemLeft" align="right" valign="top">path_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="solver_8h.html#ae5800d231c2efca9d2978819e7815357">solver_execute_full</a> (<a class="el" href="core_8h.html#aadb7dc3ae11a9c31679138d43f1a0621">maze_t</a> <a class="el" href="structmaze.html">maze</a>)</td></tr>
 <tr class="memdesc:ae5800d231c2efca9d2978819e7815357"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that runs the full algorithm.  <a href="solver_8h.html#ae5800d231c2efca9d2978819e7815357">More...</a><br /></td></tr>
 <tr class="separator:ae5800d231c2efca9d2978819e7815357"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a536de97fa0cfae5027183fbe277706a2"><td class="memItemLeft" align="right" valign="top"><a id="a536de97fa0cfae5027183fbe277706a2" name="a536de97fa0cfae5027183fbe277706a2"></a>
-path_t&#160;</td><td class="memItemRight" valign="bottom"><b>solver_execute_astar</b> (<a class="el" href="core_8h.html#aadb7dc3ae11a9c31679138d43f1a0621">maze_t</a> <a class="el" href="structmaze.html">maze</a>, <a class="el" href="core_8h.html#a08b218b4da91f44517a7e53143fcdc3e">location_t</a> start, <a class="el" href="core_8h.html#a08b218b4da91f44517a7e53143fcdc3e">location_t</a> end, path_t overlay, bool go_back)</td></tr>
+<tr class="memitem:a536de97fa0cfae5027183fbe277706a2"><td class="memItemLeft" align="right" valign="top">path_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="solver_8h.html#a536de97fa0cfae5027183fbe277706a2">solver_execute_astar</a> (<a class="el" href="core_8h.html#aadb7dc3ae11a9c31679138d43f1a0621">maze_t</a> <a class="el" href="structmaze.html">maze</a>, <a class="el" href="core_8h.html#a08b218b4da91f44517a7e53143fcdc3e">location_t</a> start, <a class="el" href="core_8h.html#a08b218b4da91f44517a7e53143fcdc3e">location_t</a> end, path_t overlay, bool go_back)</td></tr>
+<tr class="memdesc:a536de97fa0cfae5027183fbe277706a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Runs the base a* algorithm.  <a href="solver_8h.html#a536de97fa0cfae5027183fbe277706a2">More...</a><br /></td></tr>
 <tr class="separator:a536de97fa0cfae5027183fbe277706a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -168,6 +169,66 @@ path_t&#160;</td><td class="memItemRight" valign="bottom"><b>solver_execute_asta
 <p>Typedef to create a vector of paths. </p>
 <p >Uses the library <a class="el" href="cvector_8h.html" title="Header that contains macros to run a dynamic vector.">cvector.h</a> to define a new type and use it as a dynamic vector.</p>
 <p >Represents a vector of different paths. </p><dl class="section see"><dt>See also</dt><dd>path_t </dd></dl>
+
+</div>
+</div>
+<a id="a536de97fa0cfae5027183fbe277706a2" name="a536de97fa0cfae5027183fbe277706a2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a536de97fa0cfae5027183fbe277706a2">&#9670;&#160;</a></span>solver_execute_astar()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">path_t solver_execute_astar </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="core_8h.html#aadb7dc3ae11a9c31679138d43f1a0621">maze_t</a>&#160;</td>
+          <td class="paramname"><em>maze</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="core_8h.html#a08b218b4da91f44517a7e53143fcdc3e">location_t</a>&#160;</td>
+          <td class="paramname"><em>start</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="core_8h.html#a08b218b4da91f44517a7e53143fcdc3e">location_t</a>&#160;</td>
+          <td class="paramname"><em>end</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">path_t&#160;</td>
+          <td class="paramname"><em>overlay</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>go_back</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Runs the base a* algorithm. </p>
+<p >Simple and fast implementation of the a* algorithm.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">maze</td><td>Maze where to execute a* </td></tr>
+    <tr><td class="paramname">start</td><td>Starting point </td></tr>
+    <tr><td class="paramname">end</td><td>Ending point </td></tr>
+    <tr><td class="paramname">overlay</td><td>Which points to evict </td></tr>
+    <tr><td class="paramname">go_back</td><td>Search a straight-only path </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
 
 </div>
 </div>
