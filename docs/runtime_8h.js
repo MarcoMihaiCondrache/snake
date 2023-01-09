@@ -8,7 +8,7 @@ var runtime_8h =
       [ "MODE_EXIT", "runtime_8h.html#a5d069ca8708a30d3ae09a065989ec1f7a4b29773e8054e831392e6fc65dd7edf0", null ],
       [ "MODE_INTERACTIVE", "runtime_8h.html#a5d069ca8708a30d3ae09a065989ec1f7a94d6fb201466343f8b6cd27f445c2c07", null ],
       [ "MODE_AI", "runtime_8h.html#a5d069ca8708a30d3ae09a065989ec1f7ac41246bdaa0d06562a26a2317e25891d", null ],
-      [ "MODE_CHALLENGE", "runtime_8h.html#a5d069ca8708a30d3ae09a065989ec1f7a1e7afc3e231ade738e1d9d5e482ecb9e", null ]
+      [ "MODE_TEST", "runtime_8h.html#a5d069ca8708a30d3ae09a065989ec1f7a96be62bb9ef166ead858e679940175a9", null ]
     ] ],
     [ "cvector_vector_type", "runtime_8h.html#a84ec156e75f6d5e38aaea7880cae9e53", null ],
     [ "runtime_execute_mode", "runtime_8h.html#ae0ee3681ca34caebc82a03c741654ad9", null ]

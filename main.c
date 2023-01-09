@@ -48,7 +48,7 @@
  *  You can now execute the executable.
  *
  *  @code{.sh}
- *  ./snake --file ../lab.txt
+ *  ./snake --file ../labs/3/input0.txt
  *  @endcode
  *
  *  @section arguments Arguments
