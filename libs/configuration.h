@@ -24,12 +24,16 @@
  *
  * Set to false by default.
  */
-#define PROGRAM_OUTPUT_COLORS false
+#define PROGRAM_OUTPUT_COLORS true
 
 /**
+ * @details Timeout of the custom solver
  *
+ * This time manages for how long the path finder
+ * algorithm should run.
  */
 #define PROGRAM_SOLVER_TIMEOUT 35
+#define PROGRAM_SOLVER_RUN_SIMPLE false
 #define PROGRAM_SOLVER_FULL_PRECISION false
 #define PROGRAM_SOLVER_IGNORE_TIMEOUT false
 

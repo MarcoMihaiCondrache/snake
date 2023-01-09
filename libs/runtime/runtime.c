@@ -41,7 +41,11 @@ static void runtime_ai(maze_t maze){
     clock_t before = clock();
 
     location_t current = maze.start;
+#if PROGRAM_SOLVER_RUN_SIMPLE == false
     path = solver_execute_full(maze);
+#else
+    path = solver_execute_astar(maze, maze.start, maze.end, NULL, true);
+#endif
 
     clock_t difference = clock() - before;
     mili_seconds = difference * 1000 / CLOCKS_PER_SEC;
@@ -57,7 +61,7 @@ static void runtime_ai(maze_t maze){
         int_fast16_t size = (int_fast16_t) cvector_size(path);
 
         char score[12];
-        sprintf(score, "%d", (1000 - size + 10 * cvector_last(path)->coins) + 2);
+        sprintf(score, "%lu", (1000 - size + 10 * cvector_last(path)->coins) + 2);
 
         coutput_string(OUTPUT_LINE OUTPUT_SPACER "Score: ", 141);
         coutput_string(score, 36);
@@ -177,7 +181,7 @@ static void runtime_interactive(maze_t maze) {
         }
     }
 
-    fprintf(stdout, "Your game ended with %zu points and %d moves", cvector_size(snake.body), snake.moves);
+    printf("Your game ended with %zu points and %d moves", cvector_size(snake.body), snake.moves);
     cvector_free(snake.body);
 }
 
@@ -200,34 +204,6 @@ void runtime_execute_mode(game_mode_t mode, maze_t *maze, bool generate) {
             runtime_ai(*maze);
             break;
         case MODE_CHALLENGE:
-            /*vector_init(&path);
-            solver_execute_pathcreator(*maze, maze->end, points, &path);
-
-            current = maze->start;
-            vector_reverse(&path);
-            for (int i = 0; i < vector_size(&path); ++i) {
-                switch (core_get_transition(current, vector_get(&path, i))) {
-                    case MOVE_EMPTY:
-                        break;
-                    case MOVE_LEFT:
-                        output_char('O');
-                        break;
-                    case MOVE_TOP:
-                        output_char('N');
-                        break;
-                    case MOVE_RIGHT:
-                        output_char('E');
-                        break;
-                    case MOVE_DOWN:
-                        output_char('S');
-                        break;
-                }
-
-                current = vector_get(&path, i);
-            }
-
-            if (points.data != NULL && points.length > 0)
-                vector_deinit(&points);*/
             break;
         default:
         case MODE_NONE:

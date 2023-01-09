@@ -110,7 +110,7 @@ static bool solver_execute_dfs(maze_t maze, location_t start, location_t end) {
     return false;
 }
 
-int estimate_coins(maze_t maze) {
+static int estimate_coins(maze_t maze) {
     // Trying to estimate the points
     // that could be reached without affecting
     // the score
