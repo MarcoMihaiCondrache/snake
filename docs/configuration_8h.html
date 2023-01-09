@@ -105,11 +105,13 @@ $(document).ready(function(){initNavTree('configuration_8h.html',''); initResiza
 Macros</h2></td></tr>
 <tr class="memitem:a4fb1a4a30a1e1665fbb64c537cb96a22"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="configuration_8h.html#a4fb1a4a30a1e1665fbb64c537cb96a22">PROGRAM_RP_ALLOCATOR</a>&#160;&#160;&#160;true</td></tr>
 <tr class="separator:a4fb1a4a30a1e1665fbb64c537cb96a22"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad087208a14419ed7a04590478ec3de1c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="configuration_8h.html#ad087208a14419ed7a04590478ec3de1c">PROGRAM_OUTPUT_COLORS</a>&#160;&#160;&#160;false</td></tr>
+<tr class="memitem:ad087208a14419ed7a04590478ec3de1c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="configuration_8h.html#ad087208a14419ed7a04590478ec3de1c">PROGRAM_OUTPUT_COLORS</a>&#160;&#160;&#160;true</td></tr>
 <tr class="separator:ad087208a14419ed7a04590478ec3de1c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a606c7a4493cf9fe937dbe5f6cd22adf2"><td class="memItemLeft" align="right" valign="top"><a id="a606c7a4493cf9fe937dbe5f6cd22adf2" name="a606c7a4493cf9fe937dbe5f6cd22adf2"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>PROGRAM_SOLVER_TIMEOUT</b>&#160;&#160;&#160;35</td></tr>
+<tr class="memitem:a606c7a4493cf9fe937dbe5f6cd22adf2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="configuration_8h.html#a606c7a4493cf9fe937dbe5f6cd22adf2">PROGRAM_SOLVER_TIMEOUT</a>&#160;&#160;&#160;35</td></tr>
 <tr class="separator:a606c7a4493cf9fe937dbe5f6cd22adf2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6911e5a8ff2a1b59b1e1ad6609c8e369"><td class="memItemLeft" align="right" valign="top"><a id="a6911e5a8ff2a1b59b1e1ad6609c8e369" name="a6911e5a8ff2a1b59b1e1ad6609c8e369"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>PROGRAM_SOLVER_RUN_SIMPLE</b>&#160;&#160;&#160;false</td></tr>
+<tr class="separator:a6911e5a8ff2a1b59b1e1ad6609c8e369"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0fd9b2a6ced063da850b404ad90642bf"><td class="memItemLeft" align="right" valign="top"><a id="a0fd9b2a6ced063da850b404ad90642bf" name="a0fd9b2a6ced063da850b404ad90642bf"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>PROGRAM_SOLVER_FULL_PRECISION</b>&#160;&#160;&#160;false</td></tr>
 <tr class="separator:a0fd9b2a6ced063da850b404ad90642bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -144,7 +146,7 @@ Macros</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define PROGRAM_OUTPUT_COLORS&#160;&#160;&#160;false</td>
+          <td class="memname">#define PROGRAM_OUTPUT_COLORS&#160;&#160;&#160;true</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -165,6 +167,22 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p >This macro determinate which memory allocator should be used. When set to true it will use a custom allocator, but if it isn't supported by your platform set it to false and the native allocator will be used. </p>
+
+</div>
+</div>
+<a id="a606c7a4493cf9fe937dbe5f6cd22adf2" name="a606c7a4493cf9fe937dbe5f6cd22adf2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a606c7a4493cf9fe937dbe5f6cd22adf2">&#9670;&#160;</a></span>PROGRAM_SOLVER_TIMEOUT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define PROGRAM_SOLVER_TIMEOUT&#160;&#160;&#160;35</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Timeout of the custom solver</p>
+<p >This time manages for how long the path finder algorithm should run. </p>
 
 </div>
 </div>

@@ -4,6 +4,7 @@ var NAVTREEINDEX0 =
 "classes.html":[5,1],
 "configuration_8h.html":[6,0,0,8],
 "configuration_8h.html#a4fb1a4a30a1e1665fbb64c537cb96a22":[6,0,0,8,1],
+"configuration_8h.html#a606c7a4493cf9fe937dbe5f6cd22adf2":[6,0,0,8,2],
 "configuration_8h.html#ad087208a14419ed7a04590478ec3de1c":[6,0,0,8,0],
 "configuration_8h_source.html":[6,0,0,8],
 "core_8h.html":[6,0,0,0,0],

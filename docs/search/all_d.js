@@ -10,5 +10,6 @@ var searchData=
   ['position_5fcost_7',['position_cost',['../structlocation.html#ab9c89dafe729af9869058d76953b8c48',1,'location']]],
   ['prev_8',['prev',['../structspan__t.html#a386f776cc556d33534161ece5083e4de',1,'span_t']]],
   ['program_5foutput_5fcolors_9',['PROGRAM_OUTPUT_COLORS',['../configuration_8h.html#ad087208a14419ed7a04590478ec3de1c',1,'configuration.h']]],
-  ['program_5frp_5fallocator_10',['PROGRAM_RP_ALLOCATOR',['../configuration_8h.html#a4fb1a4a30a1e1665fbb64c537cb96a22',1,'configuration.h']]]
+  ['program_5frp_5fallocator_10',['PROGRAM_RP_ALLOCATOR',['../configuration_8h.html#a4fb1a4a30a1e1665fbb64c537cb96a22',1,'configuration.h']]],
+  ['program_5fsolver_5ftimeout_11',['PROGRAM_SOLVER_TIMEOUT',['../configuration_8h.html#a606c7a4493cf9fe937dbe5f6cd22adf2',1,'configuration.h']]]
 ];
