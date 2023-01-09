@@ -181,7 +181,7 @@ static void runtime_interactive(maze_t maze) {
         }
     }
 
-    printf("Your game ended with %zu points and %d moves", cvector_size(snake.body), snake.moves);
+    printf("Your score is: %zu, with %d moves and %zu coins", 1000 - snake.moves + (cvector_size(snake.body) * 10), snake.moves, cvector_size(snake.body));
     cvector_free(snake.body);
 }
 
