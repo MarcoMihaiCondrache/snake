@@ -203,7 +203,13 @@ void runtime_execute_mode(game_mode_t mode, maze_t *maze, bool generate) {
 
             runtime_ai(*maze);
             break;
-        case MODE_CHALLENGE:
+        case MODE_TEST:
+            generator_create(maze);
+            path_t result = solver_execute_astar(*maze, maze->start, maze->end, NULL, true);
+            for (int i = 0; i < cvector_size(result); i++)
+                core_set_block(*maze, result[i], SNAKE_PATH_CHAR);
+
+            core_print_maze(*maze);
             break;
         default:
         case MODE_NONE:

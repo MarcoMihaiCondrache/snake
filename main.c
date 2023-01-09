@@ -100,7 +100,7 @@
 
 void *
 get_input(char **argv, uint_fast16_t i, uint_fast16_t size, bool *out_generate_flag, int *out_width, int *out_height) {
-    if (strcmp("--challenge", argv[i]) == 0)
+    if (strcmp("--test", argv[i]) == 0)
         return stdin;
 
     if (strcmp("--file", argv[i]) == 0) {
@@ -143,6 +143,12 @@ int main(int argc, char **argv) {
         bool generate = false;
         void *input = get_input(argv, i, argc, &generate, &generated_width, &generated_height);
 
+        if (input == stdin) {
+            runtime_execute_mode(MODE_TEST, &maze, true);
+            core_free_maze(maze);
+            exit(EXIT_SUCCESS);
+        }
+
         if (input == NULL) {
             if (generate) {
                 maze.width = generated_width;
@@ -161,12 +167,6 @@ int main(int argc, char **argv) {
 
         core_free_maze(maze);
         maze = core_parse_maze(input);
-
-        if (input == stdin) {
-            runtime_execute_mode(MODE_CHALLENGE, &maze, true);
-            core_free_maze(maze);
-            exit(EXIT_SUCCESS);
-        }
 
         parsed = true;
         break;

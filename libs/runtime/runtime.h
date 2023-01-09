@@ -52,7 +52,7 @@ typedef enum game_mode {
     MODE_EXIT = 1, /**< Mode exit, stops the game */
     MODE_INTERACTIVE = 2, /**< Mode interactive, the player is moved by the user. */
     MODE_AI = 3, /**< Mode AI, the program finds the best path */
-    MODE_CHALLENGE = 4, /**< Mode challenge, used for big tests. */
+    MODE_TEST = 4, /**< Mode test, used for big tests. */
 } game_mode_t;
 
 /**
